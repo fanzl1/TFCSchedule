@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "settingTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    settingTableViewController *settingVC = [[settingTableViewController alloc]initWithNibName:@"settingTableViewController" bundle:nil];
+    settingVC.title = @"设置";
+    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:settingVC];
+    self.window.rootViewController = navi;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
